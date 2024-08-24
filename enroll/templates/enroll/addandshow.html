@@ -1,0 +1,22 @@
+{% extends 'enroll/base.html' %}
+{% block content %}
+
+<div class="row-center">
+    <div class="col-sm-3">
+        <h4 class="text-center alert alert-info">Add New Student</h4>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input  type="submit" class="btn btn-success" value="ADD">
+            <div class="text-center">
+                {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags %} {{message}} <br> {% endif %}
+                {% endfor %}
+                {% endif %}
+            </div>
+        </form>
+    <a href="{% url 'showdata' %} " class="btn btn-warning btn-sm">Show Data</a>
+    </div>
+</div>
+{% endblock content %}
